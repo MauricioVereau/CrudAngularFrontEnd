@@ -1,0 +1,76 @@
+
+<div>
+    <form class="content" (submit)="registraCliente()">
+        <div class="submit-form">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h6>Cliente</h6>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 2%">
+                <label for="apellidos" class="col-lg-1">Apellidos</label>
+                <div class="col-lg-2">
+                    <input type="text" class="form-control" name="apellidos" id="apellidos" [(ngModel)] = "cliente.apellidos" />
+                </div>
+
+                <label for="nombres" class="col-lg-1">Nombres</label>
+                <div class="col-lg-2">
+                    <input type="text" class="form-control" name="nombres" id="nombres"  [(ngModel)] = "cliente.nombres" />
+                </div>
+                <label for="email" class="col-lg-1">Email</label>
+                <div class="col-lg-2">
+                    <input type="email" class="form-control" name="email" id="email" [(ngModel)] = "cliente.email"  />
+                </div>
+            </div>
+            <div class="row" style="margin-top: 2%">
+                <label for="dni" class="col-lg-1">DNI </label>
+                <div class="col-lg-2">
+                    <input type="text" class="form-control" name="dni" id="dni" [(ngModel)] = "cliente.dni" maxlength="8"/>
+                </div>
+                <label for="fechaNacimiento" class="col-lg-1">Fecha Nacimiento</label>
+                <div class="col-lg-2">
+                    <input type="date" class="form-control" name="fechaNacimiento" id="fechaNacimiento"  [(ngModel)] = "cliente.fechaNacimiento" />
+                </div>
+                <label for="totalLineaCredito" class="col-lg-1">Linea Credito</label>
+                <div class="col-lg-2">
+                    <input type="text" class="form-control" name="totalLineaCredito" id="totalLineaCredito" [(ngModel)] = "cliente.totalLineaCredito"  />
+                </div>
+
+                <div class="col-lg-2">
+                    <button class="btn btn-success">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="row" style="margin-top: 3%">
+            <table class="table table-hover">
+                <thead>
+                    <tr >
+                        <th>Apellidos</th>
+                        <th>nombres</th>
+                        <th>E-mail</th>
+                        <th>DNI</th>
+                        <th>Fecha Nacimiento</th>
+                        <th>Líneas de Crédito</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let c of clientes">
+                        <td>{{ c.apellidos }}</td>
+                        <td>{{ c.nombres}}</td>
+                        <td>{{ c.email }}</td>
+                        <td>{{ c.dni }}</td>
+                        <td>{{ c.fechaNacimiento }}</td>
+                        <td>{{ c.totalLineaCredito }}</td>
+                        <td>
+                            <button (click)="eliminar(c.idCliente)" class="btn btn-danger btn-sm">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+    
+</div>
